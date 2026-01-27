@@ -41,8 +41,19 @@ function drawBoard() {
 canvas.addEventListener('click', (e) => {
     const col = Math.floor(e.offsetX / cellSize);
     const row = Math.floor(e.offsetY / cellSize);
+
+    const resetBtn = document.getElementById('resetBtn');
+    resetBtn.addEventListener('click', () => {
+    // Reset logic here
+    location.reload(); // Common way to reset by refreshing the page
+});
+
+function resetGame() {
+    // Your logic to clear the board goes here
+    console.log("Game has been reset.");
+}
     
-    if (selectedPiece) {
+if (selectedPiece) {
         // Move logic: move piece to empty square
         if (board[row][col] === 0) {
             board[row][col] = board[selectedPiece.row][selectedPiece.col];
