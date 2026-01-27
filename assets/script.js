@@ -17,18 +17,6 @@ let board = [
 
 let selectedPiece = null;
 
-// for (let y = 0; y < size; y++) {
-//  for (let x = 0; x < size; x++) {
-    // If the sum of coordinates is even, add a space; if odd, add a "#"
-  //  if ((x + y) % 2 === 0) {
-    //  board += " ";
-    // } else {
-    //  board += "#";
-  //  }
-  // }
-  // board += "\n"; // Newline after each row
-// }
-
 console.log(board);
 
 function drawBoard() {

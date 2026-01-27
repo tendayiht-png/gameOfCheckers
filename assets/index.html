@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+    <title>HTML5 Checkers</title>
 </head>
 
 <body>
     <div id="game-container">
     <div class="status-bar">Red's Turn</div>
-    <canvas id="checkerboard" width="400" height="400"></canvas>
+    <canvas id="checkerboard" width="400" height="400" style="border:1px solid #000;">
+    </canvas>
     <button onclick="resetGame()">Reset Board</button>
         </div>
-    <!code above was updated from this:-->
-    <!--This canvas id="checkerboard" width="400" height="400" style="border:1px solid #000;"></canvas-->
     
-    <script src="game.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
