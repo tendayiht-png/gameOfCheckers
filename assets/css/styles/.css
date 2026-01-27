@@ -1,0 +1,50 @@
+/* Container for the game and UI */
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #1e1e2e; /* Dark theme trend for 2026 */
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+}
+
+/* Canvas styling */
+#checkerboard {
+    border-radius: 8px; /* Softer edges trend */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Depth and hierarchy */
+    cursor: pointer;
+    max-width: 90vw; /* Responsive scaling */
+    max-height: 90vh;
+    touch-action: none; /* Prevents scrolling while playing on mobile */
+}
+
+/* Game Status UI */
+.status-bar {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Glassmorphism trend */
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Button Styling */
+button {
+    margin-top: 15px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #f38ba8; /* Vibrant color trend */
+    color: #1e1e2e;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s; /* Micro-interactions */
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #fab387;
+}
