@@ -16,6 +16,12 @@ let board = [
 ];
 
 let selectedPiece = null;
+let currentPlayer = 1; // 1 = Player One, 2 = Player Two
+
+function endTurn() {
+    currentPlayer = (currentPlayer === 1) ? 2 : 1;
+    updateDisplay(); // Reflect the current turn in the interface
+}
 
 console.log(board);
 
@@ -52,7 +58,63 @@ function resetGame() {
     // Your logic to clear the board goes here
     console.log("Game has been reset.");
 }
+
+let timeLeft = 30;
+let timerId;
+
+function startTurnTimer() {
+  timeLeft = 30; // Reset time for new turn
+  updateDisplay();
+  
+  timerId = setInterval(() => {
+    timeLeft--;
+    updateDisplay();
     
+    if (timeLeft <= 0) {
+      clearInterval(timerId);
+      handleTimeOut(); // Penalty or turn switch logic
+    }
+  }, 1000);
+}
+
+function updateDisplay() {
+  document.getElementById('timer').innerText = `Time Left: ${timeLeft}s`;
+}
+
+function handleTimeout() {
+  clearInterval(timerId); // Stop the timer immediately
+  console.log("Turn expired! Switching players...");
+  // Logic to switch turn or end game goes here
+}
+
+// Call this when a move is successfully completed
+function onMoveExecuted() {
+  clearInterval(timerId); // Stop the current player's clock
+  startTurn();           // Immediately start the next player's clock
+}
+
+function updateDisplay() {
+  // Finds the <span> we created in HTML and updates its number
+  const display = document.getElementById('timer-display');
+  display.innerText = timeLeft;
+  
+  // Optional: Change color to red when time is low
+  if (timeLeft <= 5) {
+    display.style.color = 'red';
+  } else {
+    display.style.color = 'black';
+  }
+}
+
+function handleMove(playerMove) {
+  if (isValid(playerMove)) {
+    executeMove(playerMove);
+    clearInterval(timerId); // Stop current timer
+    switchTurn();           // Change player
+    startTurnTimer();      // Start timer for next player
+  }
+}
+
 if (selectedPiece) {
         // Move logic: move piece to empty square
         if (board[row][col] === 0) {
